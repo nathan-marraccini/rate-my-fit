@@ -36,3 +36,45 @@
     transform: rotate(360deg);
   }
 }
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  z-index: 50;
+}
+
+.loading-spinner {
+  width: 6rem;
+  height: 6rem;
+  border: 4px solid rgba(124, 58, 237, 0.2);
+  border-top: 4px solid #7C3AED;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  transform-origin: center;
+}
+
+.loading-text {
+  color: #7C3AED;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.loading-subtext {
+  color: #9CA3AF;
+  font-size: 0.875rem;
+}
