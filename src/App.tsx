@@ -367,7 +367,9 @@ const App: React.FC = () => {
       base64Image.substring(0, 50) + "..."
     );
 
-    const response = await fetch("http://localhost:3001/api/rate-outfit", {
+    const apiUrl = "/api/rate-outfit";
+
+    const response = await fetch(apiUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
