@@ -132,13 +132,6 @@ const App: React.FC = () => {
     event.preventDefault();
   };
 
-  const handleCameraCapture = () => {
-    const cameraInput = document.getElementById(
-      "cameraInput"
-    ) as HTMLInputElement | null;
-    if (cameraInput) cameraInput.click();
-  };
-
   const detectPeople = async () => {
     if (!selectedFile) return;
     setIsProcessing(true);
@@ -398,7 +391,7 @@ const App: React.FC = () => {
               },
               {
                 type: "text",
-                text: 'Please rate this person\'s outfit from 0.0-10.0 (10.0 being the best). Consider style, color coordination, fit, and overall aesthetic. Provide a brief explanation for your rating. Format your response as JSON with "score" (number) and "feedback" (string) fields.',
+                text: 'Please rate this person\'s outfit from 0.0-10.0 (10.0 being the best). Consider style, color coordination, fit, and overall aesthetic. Provide a brief explanation for your rating and suggested improvements. Format your response as JSON with "score" (number) and "feedback" (string) fields.',
               },
             ],
           },
@@ -513,15 +506,6 @@ const App: React.FC = () => {
               className="hidden"
               style={{ display: "none" }}
             />
-            <input
-              id="cameraInput"
-              type="file"
-              accept="image/*"
-              capture="environment"
-              onChange={handleFileSelect}
-              className="hidden"
-              style={{ display: "none" }}
-            />
             {previewUrl ? (
               <div>
                 <img
@@ -551,23 +535,6 @@ const App: React.FC = () => {
                 <p style={{ color: "#6B7280", fontSize: 14 }}>
                   Supports JPG, PNG, and other image formats
                 </p>
-                <button
-                  type="button"
-                  onClick={handleCameraCapture}
-                  style={{
-                    marginTop: 16,
-                    background: "#7C3AED",
-                    color: "#fff",
-                    padding: "10px 24px",
-                    borderRadius: 8,
-                    fontWeight: 600,
-                    border: "none",
-                    cursor: "pointer",
-                    fontSize: 15,
-                  }}
-                >
-                  📷 Take a Photo (mobile only)
-                </button>
               </div>
             )}
           </div>
